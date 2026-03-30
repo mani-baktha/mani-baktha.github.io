@@ -1,0 +1,32 @@
+{
+  "posts/post-with-code/index.qmd": {
+    "index.html": "0238df60"
+  },
+  "posts/2022-01-29-data-engineering-zoomcamp.md": {
+    "2022-01-29-data-engineering-zoomcamp.html": "fb42fd47"
+  },
+  "posts/welcome/index.qmd": {
+    "index.html": "1e491c5e"
+  },
+  "posts/2020-02-20-test.md": {
+    "2020-02-20-test.html": "355553fb"
+  },
+  "posts/2020-01-14-test-markdown-post.md": {
+    "2020-01-14-test-markdown-post.html": "864b9077"
+  },
+  "posts/2022-01-22-fainess-in-machine-learning.md": {
+    "2022-01-22-fainess-in-machine-learning.html": "34ede8c8"
+  },
+  "posts/2022-01-08-coursera-gan-specialization.md": {
+    "2022-01-08-coursera-gan-specialization.html": "d45c7a6f"
+  },
+  "posts/2022-04-29-airflow-certif.md": {
+    "2022-04-29-airflow-certif.html": "f6541baa"
+  },
+  "index.qmd": {
+    "index.html": "818b2fab"
+  },
+  "about.qmd": {
+    "about.html": "e370ec60"
+  }
+}
