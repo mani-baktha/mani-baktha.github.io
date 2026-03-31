@@ -42,13 +42,6 @@
     "text": "Resources\n\nAttacking discrimination in ML\nEquality of opportunity in ML\nDuke slides\nFair ML book\nMoritz Hardt et al., Equality of opportunity in supervised learning"
   },
   {
-    "objectID": "posts/2020-02-20-test.html",
-    "href": "posts/2020-02-20-test.html",
-    "title": "Fastpages Notebook Blog Post",
-    "section": "",
-    "text": "About \n\n\nThis notebook is a demonstration of some of capabilities of fastpages with notebooks.\n\n\nWith fastpages you can save your jupyter notebooks into the _notebooks folder at the root of your repository, and they will be automatically be converted to Jekyll compliant blog posts!\n\n\n\n\n\n\n\n\nFront Matter \n\n\nThe first cell in your Jupyter Notebook or markdown blog post contains front matter. Front matter is metadata that can turn on/off options in your Notebook. It is formatted like this:\n\n# \"My Title\"\n&gt; \"Awesome summary\"\n\n- toc:true- branch: master\n- badges: true\n- comments: true\n- author: Hamel Husain & Jeremy Howard\n- categories: [fastpages, jupyter]\n\n\nSetting toc: true will automatically generate a table of contents\n\n\nSetting badges: true will automatically include GitHub and Google Colab links to your notebook.\n\n\nSetting comments: true will enable commenting on your blog post, powered by utterances.\n\n\n\nThe title and description need to be enclosed in double quotes only if they include special characters such as a colon. More details and options for front matter can be viewed on the front matter section of the README.\n\n\n\n\n\n\n\n\nMarkdown Shortcuts \n\n\n\n\n\n\n\n\nA #hide comment at the top of any code cell will hide both the input and output of that cell in your blog post.\n\n\nA #hide_input comment at the top of any code cell will only hide the input of that cell.\n\n\n\n\n{% raw %}\n\n\n\n\n\nThe comment #hide_input was used to hide the code that produced this.\n\n\n\n\n\n\n{% endraw %}\n\n\n\n\nput a #collapse-hide flag at the top of any cell if you want to hide that cell by default, but give the reader the option to show it:\n\n\n\n\n{% raw %}\n\n\n\n\n\n\n\n&lt;div class=\"input_area\"&gt;\n\nimport pandas as pd\nimport altair as alt\n\n\n&lt;/div&gt;\n\n\n\n\n\n{% endraw %}\n\n\n\n\nput a #collapse-show flag at the top of any cell if you want to show that cell by default, but give the reader the option to hide it:\n\n\n\n\n{% raw %}\n\n\n\n\n\n\n\n&lt;div class=\"input_area\"&gt;\n\ncars = 'https://vega.github.io/vega-datasets/data/cars.json'\nmovies = 'https://vega.github.io/vega-datasets/data/movies.json'\nsp500 = 'https://vega.github.io/vega-datasets/data/sp500.csv'\nstocks = 'https://vega.github.io/vega-datasets/data/stocks.csv'\nflights = 'https://vega.github.io/vega-datasets/data/flights-5k.json'\n\n\n&lt;/div&gt;\n\n\n\n\n\n{% endraw %}\n\n\n\n\nplace a #collapse-output flag at the top of any cell if you want to put the output under a collapsable element that is closed by default, but give the reader the option to open it:\n\n\n\n\n{% raw %}\n\n\n\n&lt;div class=\"input_area\"&gt;\n\nprint('The comment #collapse-output was used to collapse the output of this cell by default but you can expand it.')\n\n\n&lt;/div&gt;\n\n\n\n\n\n\n\n\n\n\nThe comment #collapse-output was used to collapse the output of this cell by default but you can expand it.\n\n\n\n\n\n\n\n\n{% endraw %}\n\n\n\n\nInteractive Charts With Altair \n\n\nCharts made with Altair remain interactive. Example charts taken from this repo, specifically this notebook.\n\n\n\n\n\n\n\n\nExample 1: DropDown \n\n\n\n\n{% raw %}\n\n\n\n&lt;div class=\"input_area\"&gt;\n\n# use specific hard-wired values as the initial selected values\nselection = alt.selection_single(\n    name='Select',\n    fields=['Major_Genre', 'MPAA_Rating'],\n    init={'Major_Genre': 'Drama', 'MPAA_Rating': 'R'},\n    bind={'Major_Genre': alt.binding_select(options=genres), 'MPAA_Rating': alt.binding_radio(options=mpaa)}\n)\n  \n# scatter plot, modify opacity based on selection\nalt.Chart(df).mark_circle().add_selection(\n    selection\n).encode(\n    x='Rotten_Tomatoes_Rating:Q',\n    y='IMDB_Rating:Q',\n    tooltip='Title:N',\n    opacity=alt.condition(selection, alt.value(0.75), alt.value(0.05))\n)\n\n\n&lt;/div&gt;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n{% endraw %}\n\n\n\n\nExample 2: Tooltips \n\n\n\n\n{% raw %}\n\n\n\n&lt;div class=\"input_area\"&gt;\n\nalt.Chart(df).mark_circle().add_selection(\n    alt.selection_interval(bind='scales', encodings=['x'])\n).encode(\n    alt.X('Rotten_Tomatoes_Rating', type='quantitative'),\n    alt.Y('IMDB_Rating', type='quantitative', axis=alt.Axis(minExtent=30)),\n#     y=alt.Y('IMDB_Rating:Q', ), # use min extent to stabilize axis title placement\n    tooltip=['Title:N', 'Release_Date:N', 'IMDB_Rating:Q', 'Rotten_Tomatoes_Rating:Q']\n).properties(\n    width=500,\n    height=400\n)\n\n\n&lt;/div&gt;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n{% endraw %}\n\n\n\n\nExample 3: More Tooltips \n\n\n\n\n{% raw %}\n\n\n\n&lt;div class=\"input_area\"&gt;\n\nlabel = alt.selection_single(\n    encodings=['x'], # limit selection to x-axis value\n    on='mouseover',  # select on mouseover events\n    nearest=True,    # select data point nearest the cursor\n    empty='none'     # empty selection includes no data points\n)\n\n# define our base line chart of stock prices\nbase = alt.Chart().mark_line().encode(\n    alt.X('date:T'),\n    alt.Y('price:Q', scale=alt.Scale(type='log')),\n    alt.Color('symbol:N')\n)\n\nalt.layer(\n    base, # base line chart\n    \n    # add a rule mark to serve as a guide line\n    alt.Chart().mark_rule(color='#aaa').encode(\n        x='date:T'\n    ).transform_filter(label),\n    \n    # add circle marks for selected time points, hide unselected points\n    base.mark_circle().encode(\n        opacity=alt.condition(label, alt.value(1), alt.value(0))\n    ).add_selection(label),\n\n    # add white stroked text to provide a legible background for labels\n    base.mark_text(align='left', dx=5, dy=-5, stroke='white', strokeWidth=2).encode(\n        text='price:Q'\n    ).transform_filter(label),\n\n    # add text labels for stock prices\n    base.mark_text(align='left', dx=5, dy=-5).encode(\n        text='price:Q'\n    ).transform_filter(label),\n    \n    data=stocks\n).properties(\n    width=500,\n    height=400\n)\n\n\n&lt;/div&gt;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n{% endraw %}\n\n\n\n\nData Tables \n\n\nYou can display tables per the usual way in your blog:\n\n\n\n\n{% raw %}\n\n\n\n&lt;div class=\"input_area\"&gt;\n\ndf[['Title', 'Worldwide_Gross', \n    'Production_Budget', 'Distributor', 'MPAA_Rating', 'IMDB_Rating', 'Rotten_Tomatoes_Rating']].head()\n\n\n&lt;/div&gt;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTitle\n\n\nWorldwide_Gross\n\n\nProduction_Budget\n\n\nDistributor\n\n\nMPAA_Rating\n\n\nIMDB_Rating\n\n\nRotten_Tomatoes_Rating\n\n\n\n\n\n\n0\n\n\nThe Land Girls\n\n\n146083.0\n\n\n8000000.0\n\n\nGramercy\n\n\nR\n\n\n6.1\n\n\nNaN\n\n\n\n\n1\n\n\nFirst Love, Last Rites\n\n\n10876.0\n\n\n300000.0\n\n\nStrand\n\n\nR\n\n\n6.9\n\n\nNaN\n\n\n\n\n2\n\n\nI Married a Strange Person\n\n\n203134.0\n\n\n250000.0\n\n\nLionsgate\n\n\nNone\n\n\n6.8\n\n\nNaN\n\n\n\n\n3\n\n\nLet’s Talk About Sex\n\n\n373615.0\n\n\n300000.0\n\n\nFine Line\n\n\nNone\n\n\nNaN\n\n\n13.0\n\n\n\n\n4\n\n\nSlam\n\n\n1087521.0\n\n\n1000000.0\n\n\nTrimark\n\n\nR\n\n\n3.4\n\n\n62.0\n\n\n\n\n\n\n\n\n\n\n{% endraw %}\n\n\n\n\nImages \n\n\nLocal Images \n\n\nYou can reference local images and they will be copied and rendered on your blog automatically. You can include these with the following markdown syntax:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRemote Images \n\n\nRemote images can be included with the following markdown syntax:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnimated Gifs \n\n\nAnimated Gifs work, too!\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCaptions \n\n\nYou can include captions with markdown images like this:\n\n![](https://www.fast.ai/images/fastai_paper/show_batch.png \"Credit: https://www.fast.ai/2020/02/13/fastai-A-Layered-API-for-Deep-Learning/\")\n\n\n\n\n\n\n\n\n\n\nOther Elements \n\n\n\n\n\n\n\n\nGitHub Flavored Emojis \n\n\nTyping I give this post two :+1:! will render this:\n\n\nI give this post two :+1:!\n\n\n\n\n\n\n\n\nTweetcards \n\n\nTyping &gt; twitter: https://twitter.com/jakevdp/status/1204765621767901185?s=20 will render this: {% include twitter.html content=‘https://twitter.com/jakevdp/status/1204765621767901185?s=20’ %}\n\n\n\n\n\n\n\n\nYoutube Videos \n\n\nTyping &gt; youtube: https://youtu.be/XfoYk_Z5AkI will render this: {% include youtube.html content=‘https://youtu.be/XfoYk_Z5AkI’ %}\n\n\n\n\n\n\n\n\nBoxes / Callouts \n\n\nTyping &gt; Warning: There will be no second warning! will render this: {% include warning.html content=‘There will be no second warning!’ %}\n\n\nTyping &gt; Important: Pay attention! It’s important. will render this: {% include important.html content=‘Pay attention! It’s important.’ %}\n\n\nTyping &gt; Tip: This is my tip. will render this: {% include tip.html content=‘This is my tip.’ %}\n\n\nTyping &gt; Note: Take note of this. will render this: {% include note.html content=‘Take note of this.’ %}\n\n\nTyping &gt; Note: A doc link to an example website: fast.ai should also work fine. will render in the docs: {% include note.html content=‘A doc link to an example website: fast.ai should also work fine.’ %}\n\n\n\n\n\n\n\n\nFootnotes \n\n\nYou can have footnotes in notebooks, however the syntax is different compared to markdown documents. This guide provides more detail about this syntax, which looks like this:\n\n{% raw %}For example, here is a footnote {% fn 1 %}.\nAnd another {% fn 2 %}\n{{ 'This is the footnote.' | fndetail: 1 }}\n{{ 'This is the other footnote. You can even have a [link](www.github.com)!' | fndetail: 2 }}{% endraw %}\n\nFor example, here is a footnote {% fn 1 %}.\n\n\nAnd another {% fn 2 %}\n\n\n{{ ‘This is the footnote.’ | fndetail: 1 }} {{ ‘This is the other footnote. You can even have a link!’ | fndetail: 2 }}"
-  },
-  {
     "objectID": "posts/2022-01-29-data-engineering-zoomcamp.html",
     "href": "posts/2022-01-29-data-engineering-zoomcamp.html",
     "title": "Data Engineering Bootcamp Weeks 1-2 (Ongoing)",
@@ -84,69 +77,6 @@
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
   },
   {
-    "objectID": "posts/2020-01-14-test-markdown-post.html",
-    "href": "posts/2020-01-14-test-markdown-post.html",
-    "title": "An Example Markdown Post",
-    "section": "",
-    "text": "Jekyll requires blog post files to be named according to the following format:\nYEAR-MONTH-DAY-filename.md\nWhere YEAR is a four-digit number, MONTH and DAY are both two-digit numbers, and filename is whatever file name you choose, to remind yourself what this post is about. .md is the file extension for markdown files.\nThe first line of the file should start with a single hash character, then a space, then your title. This is how you create a “level 1 heading” in markdown. Then you can create level 2, 3, etc headings as you wish but repeating the hash character, such as you see in the line ## File names above.\n\n\n\nYou can use italics, bold, code font text, and create links. Here’s a footnote 1. Here’s a horizontal rule:\n\n\n\n\nHere’s a list:\n\nitem 1\nitem 2\n\nAnd a numbered list:\n\nitem 1\nitem 2\n\n\n\n\n\nThis is a quotation\n\n{% include alert.html text=“You can include alert boxes” %}\n…and…\n{% include info.html text=“You can include info boxes” %}\n\n\n\n\n\n\n\nYou can format text and code per usual\nGeneral preformatted text:\n# Do a thing\ndo_thing()\nPython code and output:\n# Prints '2'\nprint(1+1)\n2\nFormatting text as shell commands:\necho \"hello world\"\n./some_script.sh --option \"value\"\nwget https://example.com/cat_photo1.png\nFormatting text as YAML:\nkey: value\n- another_key: \"another value\"\n\n\n\n\n\n\nColumn 1\nColumn 2\n\n\n\n\nA thing\nAnother thing\n\n\n\n\n\n\n{% twitter https://twitter.com/jakevdp/status/1204765621767901185?s=20 %}"
-  },
-  {
-    "objectID": "posts/2020-01-14-test-markdown-post.html#basic-setup",
-    "href": "posts/2020-01-14-test-markdown-post.html#basic-setup",
-    "title": "An Example Markdown Post",
-    "section": "",
-    "text": "Jekyll requires blog post files to be named according to the following format:\nYEAR-MONTH-DAY-filename.md\nWhere YEAR is a four-digit number, MONTH and DAY are both two-digit numbers, and filename is whatever file name you choose, to remind yourself what this post is about. .md is the file extension for markdown files.\nThe first line of the file should start with a single hash character, then a space, then your title. This is how you create a “level 1 heading” in markdown. Then you can create level 2, 3, etc headings as you wish but repeating the hash character, such as you see in the line ## File names above."
-  },
-  {
-    "objectID": "posts/2020-01-14-test-markdown-post.html#basic-formatting",
-    "href": "posts/2020-01-14-test-markdown-post.html#basic-formatting",
-    "title": "An Example Markdown Post",
-    "section": "",
-    "text": "You can use italics, bold, code font text, and create links. Here’s a footnote 1. Here’s a horizontal rule:"
-  },
-  {
-    "objectID": "posts/2020-01-14-test-markdown-post.html#lists",
-    "href": "posts/2020-01-14-test-markdown-post.html#lists",
-    "title": "An Example Markdown Post",
-    "section": "",
-    "text": "Here’s a list:\n\nitem 1\nitem 2\n\nAnd a numbered list:\n\nitem 1\nitem 2"
-  },
-  {
-    "objectID": "posts/2020-01-14-test-markdown-post.html#boxes-and-stuff",
-    "href": "posts/2020-01-14-test-markdown-post.html#boxes-and-stuff",
-    "title": "An Example Markdown Post",
-    "section": "",
-    "text": "This is a quotation\n\n{% include alert.html text=“You can include alert boxes” %}\n…and…\n{% include info.html text=“You can include info boxes” %}"
-  },
-  {
-    "objectID": "posts/2020-01-14-test-markdown-post.html#code",
-    "href": "posts/2020-01-14-test-markdown-post.html#code",
-    "title": "An Example Markdown Post",
-    "section": "",
-    "text": "You can format text and code per usual\nGeneral preformatted text:\n# Do a thing\ndo_thing()\nPython code and output:\n# Prints '2'\nprint(1+1)\n2\nFormatting text as shell commands:\necho \"hello world\"\n./some_script.sh --option \"value\"\nwget https://example.com/cat_photo1.png\nFormatting text as YAML:\nkey: value\n- another_key: \"another value\""
-  },
-  {
-    "objectID": "posts/2020-01-14-test-markdown-post.html#tables",
-    "href": "posts/2020-01-14-test-markdown-post.html#tables",
-    "title": "An Example Markdown Post",
-    "section": "",
-    "text": "Column 1\nColumn 2\n\n\n\n\nA thing\nAnother thing"
-  },
-  {
-    "objectID": "posts/2020-01-14-test-markdown-post.html#tweetcards",
-    "href": "posts/2020-01-14-test-markdown-post.html#tweetcards",
-    "title": "An Example Markdown Post",
-    "section": "",
-    "text": "{% twitter https://twitter.com/jakevdp/status/1204765621767901185?s=20 %}"
-  },
-  {
-    "objectID": "posts/2020-01-14-test-markdown-post.html#footnotes",
-    "href": "posts/2020-01-14-test-markdown-post.html#footnotes",
-    "title": "An Example Markdown Post",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThis is the footnote.↩︎"
-  },
-  {
     "objectID": "posts/2022-01-08-coursera-gan-specialization.html",
     "href": "posts/2022-01-08-coursera-gan-specialization.html",
     "title": "Coursera GAN specialization (Ongoing)",
@@ -172,6 +102,6 @@
     "href": "index.html",
     "title": "mani-baktha.github.io",
     "section": "",
-    "text": "Post With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nMar 31, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nMar 28, 2026\n\n\nTristan O’Malley\n\n\n\n\n\n\n\n\n\n\n\n\nAirflow certification\n\n\n\nCourses\n\nCertification\n\nData Engineering\n\n\n\nShowcase data pipeline skills\n\n\n\n\n\nApr 29, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nData Engineering Bootcamp Weeks 1-2 (Ongoing)\n\n\n\nCourses\n\nData Engineering\n\n\n\nLearning journey for Data Engineering Zoomcamp\n\n\n\n\n\nJan 29, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nFairness in Machine Learning\n\n\n\nMachine Learning\n\n\n\nConcepts and learning resources for fairness in machine learning\n\n\n\n\n\nJan 22, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nCoursera GAN specialization (Ongoing)\n\n\n\nCourses\n\nDeep Learning\n\n\n\nNotes and reviews on the coursera GAN specialization\n\n\n\n\n\nJan 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nFastpages Notebook Blog Post\n\n\n\n\n\nA tutorial of fastpages for Jupyter notebooks.\n\n\n\n\n\nFeb 20, 2020\n\n\n\n\n\n\n\n\n\n\n\n\nAn Example Markdown Post\n\n\n\n\n\nA minimal example of using markdown with fastpages.\n\n\n\n\n\nJan 14, 2020\n\n\n\n\n\nNo matching items"
+    "text": "Post With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nMar 31, 2026\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nMar 28, 2026\n\n\nTristan O’Malley\n\n\n\n\n\n\n\n\n\n\n\n\nAirflow certification\n\n\n\nCourses\n\nCertification\n\nData Engineering\n\n\n\nShowcase data pipeline skills\n\n\n\n\n\nApr 29, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nData Engineering Bootcamp Weeks 1-2 (Ongoing)\n\n\n\nCourses\n\nData Engineering\n\n\n\nLearning journey for Data Engineering Zoomcamp\n\n\n\n\n\nJan 29, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nFairness in Machine Learning\n\n\n\nMachine Learning\n\n\n\nConcepts and learning resources for fairness in machine learning\n\n\n\n\n\nJan 22, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nCoursera GAN specialization (Ongoing)\n\n\n\nCourses\n\nDeep Learning\n\n\n\nNotes and reviews on the coursera GAN specialization\n\n\n\n\n\nJan 8, 2022\n\n\n\n\n\nNo matching items"
   }
 ]

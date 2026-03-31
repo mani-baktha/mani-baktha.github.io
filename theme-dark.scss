@@ -1,0 +1,260 @@
+/*-- scss:defaults --*/
+
+// ── Fonts ─────────────────────────────────────────────────────────────────────
+$font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-monospace:  "Roboto Mono", "SFMono-Regular", Consolas, monospace;
+$headings-font-family:   "Playfair Display", Georgia, serif;
+
+// ── Colours ───────────────────────────────────────────────────────────────────
+$body-bg:          #1C1C1E;   // warm dark — Apple's system dark bg
+$body-color:       #E8E8E3;   // soft warm white — not harsh pure white
+$link-color:       #60A5FA;   // lighter blue readable on dark
+$link-hover-color: #93C5FD;
+
+$headings-color:   #F5F5F0;
+$text-muted:       #888880;
+
+// Navbar
+$navbar-bg:        #1C1C1E;
+$navbar-fg:        #E8E8E3;
+$navbar-hl:        #60A5FA;
+
+// Code
+$code-bg:          #252528;
+$code-color:       #E8E8E3;
+
+// ── Typography ────────────────────────────────────────────────────────────────
+$font-size-base:   1.0rem;
+$line-height-base: 1.75;
+$headings-font-weight: 700;
+
+/*-- scss:rules --*/
+
+// ── Google Fonts ──────────────────────────────────────────────────────────────
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Playfair+Display:wght@700&family=Roboto+Mono:wght@400;500&display=swap');
+
+// ── Reading width ─────────────────────────────────────────────────────────────
+.content, article {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// ── Navbar ────────────────────────────────────────────────────────────────────
+.navbar {
+  border-bottom: 1px solid #2C2C2F;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+  box-shadow: none;
+
+  .navbar-brand {
+    font-family: $headings-font-family;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: $headings-color;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: $text-muted !important;
+    letter-spacing: 0.01em;
+    padding: 0.25rem 0.75rem;
+    transition: color 0.15s;
+
+    &:hover {
+      color: $body-color !important;
+    }
+  }
+
+  .quarto-color-scheme-toggle {
+    opacity: 0.5;
+    &:hover { opacity: 1; }
+  }
+}
+
+// ── Post listing ──────────────────────────────────────────────────────────────
+.quarto-listing {
+  margin-top: 2rem;
+}
+
+.listing-image, .card-img-top {
+  display: none !important;
+}
+
+.card {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #2C2C2F !important;
+  border-radius: 0 !important;
+  padding: 1.75rem 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+
+  &:last-child {
+    border-bottom: none !important;
+  }
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.listing-title, .card-title {
+  font-family: $headings-font-family;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: $headings-color;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+
+  a {
+    color: $headings-color !important;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-color !important;
+    }
+  }
+}
+
+.listing-date, .card-date {
+  font-size: 0.83rem;
+  color: $text-muted;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.listing-description, .card-text {
+  font-size: 0.95rem;
+  color: #AAAAAA;
+  line-height: 1.6;
+  margin-top: 0.35rem;
+}
+
+.listing-categories .listing-category, .card-category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $text-muted;
+  background: #2C2C2F;
+  border-radius: 3px;
+  padding: 0.15rem 0.5rem;
+  margin-right: 0.3rem;
+  text-decoration: none;
+
+  &:hover {
+    background: #3A3A3E;
+    color: $body-color;
+  }
+}
+
+.listing-author, .card-author {
+  display: none;
+}
+
+// ── Category sidebar ──────────────────────────────────────────────────────────
+#quarto-margin-sidebar {
+  .quarto-listing-category-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $text-muted;
+    margin-bottom: 0.75rem;
+  }
+
+  .category {
+    font-size: 0.85rem;
+    color: #AAAAAA;
+    padding: 0.2rem 0;
+    cursor: pointer;
+
+    &:hover { color: $link-color; }
+    &.active { color: $link-color; font-weight: 600; }
+  }
+}
+
+// ── Individual post page ──────────────────────────────────────────────────────
+.quarto-title {
+  margin-bottom: 1.5rem;
+
+  .title {
+    font-family: $headings-font-family;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: $headings-color;
+    letter-spacing: -0.02em;
+  }
+
+  .quarto-title-meta {
+    font-size: 0.85rem;
+    color: $text-muted;
+    margin-top: 0.75rem;
+  }
+}
+
+.quarto-content {
+  h1, h2, h3, h4 {
+    font-family: $headings-font-family;
+    color: $headings-color;
+    letter-spacing: -0.01em;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.4rem; border-bottom: 1px solid #2C2C2F; padding-bottom: 0.4rem; }
+  h3 { font-size: 1.15rem; }
+
+  p { margin-bottom: 1.25rem; }
+
+  code:not(pre code) {
+    background: $code-bg;
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    font-size: 0.88em;
+    color: #93C5FD;
+  }
+
+  pre {
+    background: $code-bg;
+    border: 1px solid #333336;
+    border-radius: 6px;
+    padding: 1.1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+  }
+
+  blockquote {
+    border-left: 3px solid #3A3A3E;
+    padding-left: 1.25rem;
+    margin-left: 0;
+    color: #AAAAAA;
+    font-style: italic;
+  }
+}
+
+// ── Footer ────────────────────────────────────────────────────────────────────
+.nav-footer {
+  border-top: 1px solid #2C2C2F;
+  padding: 1.5rem 0;
+  font-size: 0.82rem;
+  color: $text-muted;
+
+  a {
+    color: $text-muted;
+    &:hover { color: $body-color; }
+  }
+}
+
+// ── Misc ──────────────────────────────────────────────────────────────────────
+body {
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.quarto-title-banner { display: none !important; }

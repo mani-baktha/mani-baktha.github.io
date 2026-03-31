@@ -1,1 +1,35 @@
-/* css styles */
+/* styles.css — minimal overrides on top of theme-light/dark.scss */
+
+/* Ensure listing page has full width for the category sidebar layout */
+.page-layout-article .page-columns {
+  grid-template-columns: 1fr 200px;
+  gap: 3rem;
+}
+
+/* Post page — no sidebar, centered reading column */
+.quarto-blog-post .page-columns {
+  display: block;
+}
+
+/* Tighten up the listing page title */
+#listing-listing + h1,
+.quarto-listing-default h1 {
+  font-size: 1rem;
+  display: none;
+}
+
+/* Remove the default "Posts" heading above the listing */
+.quarto-listing-container h2 {
+  display: none;
+}
+
+/* Smooth category filter animation */
+.quarto-listing-cols-3 .card,
+.quarto-listing-default .card {
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

@@ -1,23 +1,67 @@
 project:
   type: website
+  output-dir: _site
 
 website:
-  description: "A blog built with Quarto"
-  site-url: https://your-website-url.example.com # you must change this appropriately for RSS feeds to work properly
-  title: "mani-baktha.github.io"
+  title: "Mani Bakthavatchalam"
+  site-url: "https://mani-baktha.github.io"
+  description: "Technical Lead, Applied AI for automotive perception. Writing about ML, data engineering, and open source."
+
+  favicon: favicon.ico
+
   navbar:
+    left:
+      - href: index.qmd
+        text: Blog
+      - href: about.qmd
+        text: About
     right:
-      - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: bluesky
-        href: https://bsky.app/
+        href: https://github.com/mani-baktha
+        aria-label: GitHub
+      - icon: rss
+        href: index.xml
+        aria-label: RSS Feed
+    tools:
+      - icon: toggle-off
+        menu:
+          - text: Light
+            href: "#"
+          - text: Dark
+            href: "#"
+
+  # Light / dark toggle
+  page-navigation: true
+  back-to-top-navigation: false
+
+  comments: false
+
+  footer:
+    left: "© 2025 Mani Bakthavatchalam"
+    right:
+      - text: "Built with [Quarto](https://quarto.org)"
+
+  open-graph: true
+  twitter-card: true
+
 format:
   html:
     theme:
-      - cosmo
-      - brand
+      light: [flatly, theme-light.scss]
+      dark:  [darkly, theme-dark.scss]
     css: styles.css
+    toc: false
+    toc-depth: 3
+    smooth-scroll: true
+    highlight-style:
+      light: arrow
+      dark:  monokai
+    code-copy: true
+    code-overflow: wrap
+    fig-responsive: true
+    link-external-icon: false
+    link-external-newwindow: true
+    google-fonts: false   # loaded in SCSS instead
 
-
-
+execute:
+  freeze: auto
