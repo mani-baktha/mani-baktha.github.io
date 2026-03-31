@@ -36,7 +36,7 @@ website:
 
   comments: false
 
-  footer:
+  page-footer:
     left: "© 2025 Mani Bakthavatchalam"
     right:
       - text: "Built with [Quarto](https://quarto.org)"
