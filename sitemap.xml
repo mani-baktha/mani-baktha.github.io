@@ -1,35 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://your-website-url.example.com/about.html</loc>
+    <loc>https://mani-baktha.github.io/about.html</loc>
     <lastmod>2026-03-31T00:04:23.443Z</lastmod>
   </url>
   <url>
-    <loc>https://your-website-url.example.com/posts/2022-04-29-airflow-certif.html</loc>
+    <loc>https://mani-baktha.github.io/posts/2022-04-29-airflow-certif.html</loc>
     <lastmod>2026-03-31T00:04:23.450Z</lastmod>
   </url>
   <url>
-    <loc>https://your-website-url.example.com/posts/2022-01-22-fainess-in-machine-learning.html</loc>
+    <loc>https://mani-baktha.github.io/posts/2022-01-22-fainess-in-machine-learning.html</loc>
     <lastmod>2026-03-31T00:04:23.449Z</lastmod>
   </url>
   <url>
-    <loc>https://your-website-url.example.com/posts/2022-01-29-data-engineering-zoomcamp.html</loc>
+    <loc>https://mani-baktha.github.io/posts/2022-01-29-data-engineering-zoomcamp.html</loc>
     <lastmod>2026-03-31T00:04:23.450Z</lastmod>
   </url>
   <url>
-    <loc>https://your-website-url.example.com/posts/post-with-code/index.html</loc>
-    <lastmod>2026-03-31T00:04:23.452Z</lastmod>
-  </url>
-  <url>
-    <loc>https://your-website-url.example.com/posts/welcome/index.html</loc>
-    <lastmod>2026-03-31T00:04:23.452Z</lastmod>
-  </url>
-  <url>
-    <loc>https://your-website-url.example.com/posts/2022-01-08-coursera-gan-specialization.html</loc>
+    <loc>https://mani-baktha.github.io/posts/2022-01-08-coursera-gan-specialization.html</loc>
     <lastmod>2026-03-31T00:04:23.449Z</lastmod>
   </url>
   <url>
-    <loc>https://your-website-url.example.com/index.html</loc>
-    <lastmod>2026-03-31T00:04:23.443Z</lastmod>
+    <loc>https://mani-baktha.github.io/index.html</loc>
+    <lastmod>2026-03-30T22:20:30.000Z</lastmod>
   </url>
 </urlset>
