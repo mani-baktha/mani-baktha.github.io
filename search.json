@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this blog"
+    "text": "Hello, I’m Mani 👋\nI am a Technical Lead and member of the Data & Software Factory team at Valeo. My current focus is Applied Generative AI - trying to leverage Machine Learning, generic LLMs and VLMs(Vision-Language models) to build useful data products.\nI help to architect, build and maintain data pipelines which help in processing, analysis and filtering of large automotive datasets.\nMost of what I build day-to-day is proprietary and stays inside company walls. But over the years I’ve learned an enormous amount from people who shared their code, their thinking, and their time openly online — and I’d like to return the favour where I can. So I started putting things here: tools I’ve built, ideas I’ve explored, work-in-progress that might be useful to someone."
   },
   {
     "objectID": "posts/2022-04-29-airflow-certif.html",
@@ -86,7 +86,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Mani Bakthavatchalam",
+    "title": "Manikandan Bakthavatchalam",
     "section": "",
     "text": "Airflow certification\n\n\n\nCourses\n\nCertification\n\nData Engineering\n\n\n\nShowcase data pipeline skills\n\n\n\n\n\nApr 29, 2022\n\n\n\n\n\n\n\nData Engineering Bootcamp Weeks 1-2 (Ongoing)\n\n\n\nCourses\n\nData Engineering\n\n\n\nLearning journey for Data Engineering Zoomcamp\n\n\n\n\n\nJan 29, 2022\n\n\n\n\n\n\n\nFairness in Machine Learning\n\n\n\nMachine Learning\n\n\n\nConcepts and learning resources for fairness in machine learning\n\n\n\n\n\nJan 22, 2022\n\n\n\n\n\n\n\nCoursera GAN specialization (Ongoing)\n\n\n\nCourses\n\nDeep Learning\n\n\n\nNotes and reviews on the coursera GAN specialization\n\n\n\n\n\nJan 8, 2022\n\n\n\n\n\nNo matching items"
   }

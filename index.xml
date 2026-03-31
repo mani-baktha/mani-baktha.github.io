@@ -5,17 +5,16 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Mani Bakthavatchalam</title>
+<title>Manikandan Bakthavatchalam</title>
 <link>https://mani-baktha.github.io/</link>
 <atom:link href="https://mani-baktha.github.io/index.xml" rel="self" type="application/rss+xml"/>
-<description>Technical Lead, Applied AI for automotive perception. Writing about ML, data engineering, and open source.</description>
+<description>Technical Lead, Applied AI for automotive perception.</description>
 <generator>quarto-1.9.36</generator>
 <lastBuildDate>Thu, 28 Apr 2022 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Airflow certification</title>
   <link>https://mani-baktha.github.io/posts/2022-04-29-airflow-certif.html</link>
   <description><![CDATA[ 
-
 
 
 
@@ -47,7 +46,6 @@ Here is my verifiable certificate link from credly. Who else is going to get sta
   <title>Data Engineering Bootcamp Weeks 1-2 (Ongoing)</title>
   <link>https://mani-baktha.github.io/posts/2022-01-29-data-engineering-zoomcamp.html</link>
   <description><![CDATA[ 
-
 
 
 
@@ -383,7 +381,6 @@ Destroy complete! Resources: 2 destroyed.</code></pre>
 
 
 
-
 <section id="objectives" class="level2">
 <h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
 <p>The objective of this post is two-fold:</p>
@@ -424,7 +421,6 @@ Destroy complete! Resources: 2 destroyed.</code></pre>
   <title>Coursera GAN specialization (Ongoing)</title>
   <link>https://mani-baktha.github.io/posts/2022-01-08-coursera-gan-specialization.html</link>
   <description><![CDATA[ 
-
 
 
 
