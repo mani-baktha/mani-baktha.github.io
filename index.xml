@@ -10,7 +10,39 @@
 <atom:link href="https://mani-baktha.github.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Technical Lead, Applied AI for automotive perception.</description>
 <generator>quarto-1.9.36</generator>
-<lastBuildDate>Thu, 28 Apr 2022 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 31 Mar 2026 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Machine Learning/CS229 - A trip down memory lane</title>
+  <link>https://mani-baktha.github.io/posts/2026-01-04-ml.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="highlight-text">
+<p>Fun fact: I was in one of the earliest cohorts (2011) of the Stanford ML course taught by Prof.&nbsp;Andrew Ng</p>
+</div>
+<p>I was a first-year PhD student at <a href="https://www.inria.fr/">INRIA</a>, spending my days thinking about cameras and differentiation of vector-valued functions.</p>
+<p>I no longer remember exactly how - I came across this ML class taught by a Stanford University Professor called Andrew Ng and it was free for anyone to take it. It was hosted on <a href="https://ml-class.org">ml-class.org</a>. This link now redirects to coursera but remember it was 2011 - pre-coursera era and before the word MOOC was prevalent. I decided to take it. I was always an avid reader and motivated to learn new topics. However, the decision might have been partly an act of making up for not having gone to <a href="gatech.edu">Georgia Tech</a> despite getting admitted for Fall 2008 (That story perhaps on a separate post…).</p>
+<p>The course was very well-taught. Ng has an extraordinary gift for teaching in a way that builds intuition before formalism — you understood why something worked. It was impressive the way he walked through linear regression, then logistic regression — starting from first principles.</p>
+<p>The programming language for the course was <a href="https://octave.org">Octave</a>. Octave was a perfectly reasonable choice in 2011. It is free, fast for matrix operations, and it forces you to think in terms of vectorised operations rather than loops. You learn to think about your data as matrices because that is the only natural way to express what you are doing. I had experience with matlab previously from my undergrad. So it was not too difficult to get going with Octave.</p>
+<p>I spent many evenings for few weeks implementing the exercises from scratch. For a thorough learning, I also studied from the original <a href="https://cs229.stanford.edu/">CS229</a> lecture notes. The understanding it produced was solid. I could duly complete the programming assignments and submit them on time. I open sourced those as well as the learning materials on <a href="https://github.com/mani-baktha/CS229_ML_ProgrammingAssignments/tree/master">CS229_ML_ProgrammingAssignments</a>. I also have all my handwritten notes with all the derivations somewhere. Hopefully, will scan and upload them here some day.</p>
+<p>I finished the course and went back to my PhD subject and worked on robots that had never heard of cross-entropy loss.</p>
+<p>If you are a beginner in ML and have never worked through the basic derivations by hand, I genuinely recommend it. Not in a notebook, not with a library. Paper, pencil, start from the likelihood, and see where it takes you. Not because you need to - any autodiff library will handle the gradients without blinking — but because the act of working through it keeps the intuition alive. I guarantee you those will be minutes well spent.</p>
+<p>The foundations built in that course were useful throughout my work life to the present day.</p>
+<div class="highlight-text">
+<p>To Prof.Andrew Ng, if you ever read this - Thank you so much. May you be blessed.</p>
+</div>
+
+
+
+ ]]></description>
+  <category>Machine learning</category>
+  <category>Personal</category>
+  <guid>https://mani-baktha.github.io/posts/2026-01-04-ml.html</guid>
+  <pubDate>Tue, 31 Mar 2026 22:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Airflow certification</title>
   <link>https://mani-baktha.github.io/posts/2022-04-29-airflow-certif.html</link>

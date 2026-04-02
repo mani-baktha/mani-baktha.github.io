@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2026-01-04-ml.html",
       "/posts/2022-04-29-airflow-certif.html",
       "/posts/2022-01-29-data-engineering-zoomcamp.html",
       "/posts/2022-01-22-fainess-in-machine-learning.html",

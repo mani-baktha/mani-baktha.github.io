@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mani-baktha.github.io/about.html</loc>
-    <lastmod>2026-03-31T21:04:04.923Z</lastmod>
+    <lastmod>2026-04-02T07:02:50.010Z</lastmod>
   </url>
   <url>
     <loc>https://mani-baktha.github.io/posts/2022-04-29-airflow-certif.html</loc>
@@ -15,6 +15,10 @@
   <url>
     <loc>https://mani-baktha.github.io/posts/2022-01-29-data-engineering-zoomcamp.html</loc>
     <lastmod>2026-03-31T00:04:23.450Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mani-baktha.github.io/posts/2026-01-04-ml.html</loc>
+    <lastmod>2026-04-02T07:01:05.904Z</lastmod>
   </url>
   <url>
     <loc>https://mani-baktha.github.io/posts/2022-01-08-coursera-gan-specialization.html</loc>
